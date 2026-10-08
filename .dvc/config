@@ -1,4 +1,4 @@
 [core]
     remote = storage
 ['remote "storage"']
-    url = ../../dvc-remote-level3
+    url = C:/Users/MediaStudio/Desktop/5.MLOps/lab-dvc/central/dvc-storage
