@@ -13,8 +13,8 @@ stages:
       size: 264426
     - path: src/ingest_clean.py
       hash: md5
-      md5: 0e87cad4e5f86d64dcc5e4a7aebb9b68
-      size: 846
+      md5: f656b20ed81dc0bd1445db0f86d398fb
+      size: 837
     outs:
     - path: data/interim/wine_clean.csv
       hash: md5
