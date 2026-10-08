@@ -10,6 +10,9 @@ df = pd.read_csv("data/interim/wine_clean.csv")
 df["is_red"] = (df["color"] == "red").astype(int)
 df["so2_ratio"] = df["free sulfur dioxide"] / df["total sulfur dioxide"]
 df = df.drop(columns="color")
+n0 = len(df)
+df = df.drop_duplicates().reset_index(drop=True)
+print("feature-level duplicates removed:", n0 - len(df))
 
 # target: good wine if quality >= threshold
 df["target"] = (df["quality"] >= p["good_threshold"]).astype(int)
