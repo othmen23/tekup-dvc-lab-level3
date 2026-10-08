@@ -19,6 +19,7 @@ df[num_cols] = (df[num_cols] - df[num_cols].mean()) / df[num_cols].std()
 # target: good wine if quality >= threshold
 df["target"] = (df["quality"] >= p["good_threshold"]).astype(int)
 df = df.drop(columns="quality")
+df = df.drop(columns="alcohol")
 
 train, test = train_test_split(
     df, test_size=p["test_size"], random_state=p["seed"], stratify=df["target"]
