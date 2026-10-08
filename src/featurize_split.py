@@ -10,6 +10,8 @@ df = pd.read_csv("data/interim/wine_clean.csv")
 df["is_red"] = (df["color"] == "red").astype(int)
 df["so2_ratio"] = df["free sulfur dioxide"] / df["total sulfur dioxide"]
 df = df.drop(columns="color")
+num_cols = [c for c in df.columns if c not in ("quality", "is_red")]
+df[num_cols] = (df[num_cols] - df[num_cols].mean()) / df[num_cols].std()
 
 # target: good wine if quality >= threshold
 df["target"] = (df["quality"] >= p["good_threshold"]).astype(int)
