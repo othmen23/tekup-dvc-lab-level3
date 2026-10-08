@@ -29,8 +29,8 @@ stages:
       size: 344915
     - path: src/featurize_split.py
       hash: md5
-      md5: d1d492680fe31e63841d50d8fb53f7eb
-      size: 1011
+      md5: c746d66082aac23a01b92c92fbaa80c3
+      size: 1155
     params:
       params.yaml:
         featurize.good_threshold: 7
@@ -39,19 +39,19 @@ stages:
     outs:
     - path: data/processed/test.csv
       hash: md5
-      md5: 22bbe45c35f774b3f71654b99712d9ec
-      size: 84707
+      md5: 0857f821b6a071b09b60f8d1568383d7
+      size: 257573
     - path: data/processed/train.csv
       hash: md5
-      md5: b51c4a300bfe99c716517bec5a97fe19
-      size: 337703
+      md5: dfc9a818a5235abd8df68e9bcfe7844c
+      size: 1030529
   train:
     cmd: python src/train.py
     deps:
     - path: data/processed/train.csv
       hash: md5
-      md5: b51c4a300bfe99c716517bec5a97fe19
-      size: 337703
+      md5: dfc9a818a5235abd8df68e9bcfe7844c
+      size: 1030529
     - path: src/train.py
       hash: md5
       md5: 6b3a86a1fd1cd1ffc2b177e738ad4fda
@@ -64,18 +64,18 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 0557924085d336e8764d301533ab88ca
+      md5: d0a25da795f967a2e4011f6e784c00b1
       size: 3979785
   evaluate:
     cmd: python src/evaluate.py
     deps:
     - path: data/processed/test.csv
       hash: md5
-      md5: 22bbe45c35f774b3f71654b99712d9ec
-      size: 84707
+      md5: 0857f821b6a071b09b60f8d1568383d7
+      size: 257573
     - path: models/model.pkl
       hash: md5
-      md5: 0557924085d336e8764d301533ab88ca
+      md5: d0a25da795f967a2e4011f6e784c00b1
       size: 3979785
     - path: src/evaluate.py
       hash: md5
@@ -84,5 +84,5 @@ stages:
     outs:
     - path: metrics/metrics.json
       hash: md5
-      md5: 035ef6a84db55a289e459326d067d183
-      size: 73
+      md5: 8403b353f2cb21f79212f4dfe8579c28
+      size: 74

@@ -13,6 +13,8 @@ df = df.drop(columns="color")
 n0 = len(df)
 df = df.drop_duplicates().reset_index(drop=True)
 print("feature-level duplicates removed:", n0 - len(df))
+num_cols = [c for c in df.columns if c not in ("quality", "is_red")]
+df[num_cols] = (df[num_cols] - df[num_cols].mean()) / df[num_cols].std()
 
 # target: good wine if quality >= threshold
 df["target"] = (df["quality"] >= p["good_threshold"]).astype(int)
