@@ -29,8 +29,8 @@ stages:
       size: 344915
     - path: src/featurize_split.py
       hash: md5
-      md5: 1f105300fb2a67e3471ebedafdf1adc3
-      size: 1174
+      md5: c646003c34754aef8a948f2790f67a7a
+      size: 1205
     params:
       params.yaml:
         featurize.good_threshold: 7
@@ -54,8 +54,8 @@ stages:
       size: 946257
     - path: src/train.py
       hash: md5
-      md5: 5425673bf9a70f3815e84ad463f56241
-      size: 491
+      md5: c62a3615e03d85320fb79f072175907c
+      size: 512
     params:
       params.yaml:
         train.max_depth: 10
