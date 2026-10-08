@@ -5,5 +5,5 @@ featurize:
 
 train:
   n_estimators: 250
-  max_depth: 8
+  max_depth: 10
   seed: 42
