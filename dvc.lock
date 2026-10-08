@@ -29,8 +29,8 @@ stages:
       size: 344915
     - path: src/featurize_split.py
       hash: md5
-      md5: 5128b665548846b4a101deadcd18bb5c
-      size: 1188
+      md5: 1f105300fb2a67e3471ebedafdf1adc3
+      size: 1174
     params:
       params.yaml:
         featurize.good_threshold: 7
