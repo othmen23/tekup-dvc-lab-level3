@@ -4,6 +4,6 @@ featurize:
   good_threshold: 7
 
 train:
-  n_estimators: 200
+  n_estimators: 250
   max_depth: 8
   seed: 42
