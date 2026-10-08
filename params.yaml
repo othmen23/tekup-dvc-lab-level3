@@ -1,0 +1,9 @@
+featurize:
+  test_size: 0.2
+  seed: 42
+  good_threshold: 7
+
+train:
+  n_estimators: 200
+  max_depth: 8
+  seed: 42

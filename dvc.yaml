@@ -1,0 +1,41 @@
+stages:
+  ingest_clean:
+    cmd: python src/ingest_clean.py
+    deps:
+    - data/raw/winequality-red.csv
+    - data/raw/winequality-white.csv
+    - src/ingest_clean.py
+    outs:
+    - data/interim/wine_clean.csv
+  featurize_split:
+    cmd: python src/featurize_split.py
+    deps:
+    - data/interim/wine_clean.csv
+    - src/featurize_split.py
+    params:
+    - featurize.good_threshold
+    - featurize.seed
+    - featurize.test_size
+    outs:
+    - data/processed/test.csv
+    - data/processed/train.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/processed/train.csv
+    - src/train.py
+    params:
+    - train.max_depth
+    - train.n_estimators
+    - train.seed
+    outs:
+    - models/model.pkl
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - data/processed/test.csv
+    - models/model.pkl
+    - src/evaluate.py
+    metrics:
+    - metrics/metrics.json:
+        cache: false
