@@ -16,7 +16,7 @@ model = RandomForestClassifier(
     max_depth=p["max_depth"],
     random_state=p["seed"],
 )
-model.fit(X.sample(frac=1, random_state=1).reset_index(drop=True), y)
+model.fit(X, y)
 
 os.makedirs("models", exist_ok=True)
 joblib.dump(model, "models/model.pkl")
